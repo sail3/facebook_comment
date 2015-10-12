@@ -1,0 +1,4 @@
+fb-comment:
+  version: VERSION
+  js:
+    //connect.facebook.net/en_US/sdk.js : { type : external, minified : true }

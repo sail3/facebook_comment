@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * @file
+ * Contains facebook_comment.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function facebook_comment_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the facebook_comment module.
+    case 'help.page.facebook_comment':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Module for display a block comment in drupal page.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function facebook_comment_theme() {
+  $theme = [];
+  $theme['facebook_comment'] = [
+    'variables' => [
+      'description' => [],
+      'appUrl' => [],
+      'appId' => [],
+
+      'applicationCode' => NULL,
+      'pageUrl' => NULL,
+      'numPosts' => 10,
+      'width' => '100%',
+      'orderBy' => 'social',
+      'colorScheme' => 'light',
+    ],
+    'template' => 'facebook_comment',
+  ];
+  return $theme;
+}
